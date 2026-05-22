@@ -1,30 +1,48 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_filters %}
 {% load crispy_forms_tags %}
 
 {% block title %}Login | Kitchen Service{% endblock %}
 
-{% block content %}
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-lg-5">
-      <div class="table-container">
-        <h1 class="mb-3">Login</h1>
-        <p class="text-muted mb-4">Sign in to access the kitchen management system.</p>
+{% block layout %}
+  <main class="login-page-shell">
+    <div class="container-fluid px-0">
+      <div class="login-page">
+        <div class="login-card">
+          <div class="login-form-side">
+            <div class="login-form-wrap">
+              <p class="login-eyebrow">Kitchen workspace</p>
+              <h1 class="mb-3">Sign In</h1>
+              <p class="text-muted mb-4">
+                Add your credentials to manage cooks, dishes, and ingredients.
+              </p>
 
-        <form method="post" action="{% url 'login' %}" novalidate>
-          {% csrf_token %}
+              <form method="post" action="{% url 'login' %}" novalidate>
+                {% csrf_token %}
 
-          {% if next %}
-            <input type="hidden" name="next" value="{{ next }}">
-          {% endif %}
+                {% if next %}
+                  <input type="hidden" name="next" value="{{ next }}">
+                {% endif %}
 
-          {{ form|crispy }}
+                {{ form|crispy }}
 
-          <button type="submit" class="btn btn-primary w-100 mt-3">
-            Login
-          </button>
-        </form>
+                <button type="submit" class="btn btn-primary w-100 mt-3">
+                  Sign In
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="login-visual-side">
+            <div class="login-visual-overlay"></div>
+            <div class="login-visual-content">
+              <h2>Kitchen Manager</h2>
+              <p>Organize every service with clarity.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 {% endblock %}
