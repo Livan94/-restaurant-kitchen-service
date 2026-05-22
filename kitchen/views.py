@@ -59,20 +59,20 @@ class DishTypeCreateView(LoginRequiredMixin, CreateView):
     model = DishType
     form_class = DishTypeForm
     template_name = "kitchen/dish_type_form.html"
-    success_url = reverse_lazy("kitchen:dishtype-list")
+    success_url = reverse_lazy("kitchen:dish-type-list")
 
 
 class DishTypeUpdateView(LoginRequiredMixin, UpdateView):
     model = DishType
     form_class = DishTypeForm
     template_name = "kitchen/dish_type_form.html"
-    success_url = reverse_lazy("kitchen:dishtype-list")
+    success_url = reverse_lazy("kitchen:dish-type-list")
 
 
 class DishTypeDeleteView(LoginRequiredMixin, DeleteView):
     model = DishType
     template_name = "kitchen/dish_type_confirm_delete.html"
-    success_url = reverse_lazy("kitchen:dishtype-list")
+    success_url = reverse_lazy("kitchen:dish-type-list")
 
 
 class IngredientListView(LoginRequiredMixin, ListView):

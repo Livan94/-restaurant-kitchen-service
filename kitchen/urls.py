@@ -8,22 +8,22 @@ urlpatterns = [
     path(
         "dish-types/",
         views.DishTypeListView.as_view(),
-        name="dishtype-list",
+        name="dish-type-list",
     ),
     path(
         "dish-types/create/",
         views.DishTypeCreateView.as_view(),
-        name="dishtype-create",
+        name="dish-type-create",
     ),
     path(
         "dish-types/<int:pk>/update/",
         views.DishTypeUpdateView.as_view(),
-        name="dishtype-update",
+        name="dish-type-update",
     ),
     path(
         "dish-types/<int:pk>/delete/",
         views.DishTypeDeleteView.as_view(),
-        name="dishtype-delete",
+        name="dish-type-delete",
     ),
     path(
         "ingredients/",
