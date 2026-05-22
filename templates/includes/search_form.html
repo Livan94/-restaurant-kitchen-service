@@ -1,15 +1,11 @@
-<form method="get" class="row g-2 mb-4">
-  <div class="col-md-6">
-    {{ search_form.query }}
-  </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-primary">
-      Search
-    </button>
-  </div>
-  <div class="col-auto">
-    <a href="{{ request.path }}" class="btn btn-outline-secondary">
-      Reset
-    </a>
-  </div>
+<form method="get" class="search-bar mb-4">
+  {{ search_form.query }}
+
+  <button type="submit" class="btn btn-primary">
+    Search
+  </button>
+
+  <a href="{{ request.path }}" class="btn btn-reset">
+    Reset
+  </a>
 </form>
