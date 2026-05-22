@@ -302,3 +302,102 @@ small,
     justify-content: center;
     padding: 2rem;
 }
+
+.hero-section {
+    position: relative;
+    min-height: 420px;
+    border-radius: 1.75rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    background-image: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(143, 61, 255, 0.30)),
+    url("/static/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 24px 60px rgba(31, 42, 68, 0.14);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    color: #fff;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.hero-section h1 {
+    font-size: clamp(2.2rem, 4vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.hero-text {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 0;
+}
+
+.stat-card {
+    text-align: left;
+}
+
+.stat-label {
+    margin-bottom: 0.55rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-card h2 {
+    margin-bottom: 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.welcome-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 250, 255, 0.95) 100%);
+}
+
+@media (max-width: 991.98px) {
+    .hero-section {
+        min-height: 360px;
+        padding: 2rem;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        min-height: 300px;
+        padding: 1.5rem;
+        border-radius: 1.25rem;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+    }
+
+    .stat-card h2 {
+        font-size: 2rem;
+    }
+}
