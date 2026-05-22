@@ -35,10 +35,9 @@ class IndexView(LoginRequiredMixin, TemplateView):
         return context
 
 
-
 class DishTypeListView(LoginRequiredMixin, ListView):
     model = DishType
-    template_name = "kitchen/dishtype_list.html"
+    template_name = "kitchen/dish_type_list.html"
     context_object_name = "dish_type_list"
     paginate_by = 5
 
@@ -59,20 +58,20 @@ class DishTypeListView(LoginRequiredMixin, ListView):
 class DishTypeCreateView(LoginRequiredMixin, CreateView):
     model = DishType
     form_class = DishTypeForm
-    template_name = "kitchen/dishtype_form.html"
+    template_name = "kitchen/dish_type_form.html"
     success_url = reverse_lazy("kitchen:dishtype-list")
 
 
 class DishTypeUpdateView(LoginRequiredMixin, UpdateView):
     model = DishType
     form_class = DishTypeForm
-    template_name = "kitchen/dishtype_form.html"
+    template_name = "kitchen/dish_type_form.html"
     success_url = reverse_lazy("kitchen:dishtype-list")
 
 
 class DishTypeDeleteView(LoginRequiredMixin, DeleteView):
     model = DishType
-    template_name = "kitchen/confirm_delete.html"
+    template_name = "kitchen/dish_type_confirm_delete.html"
     success_url = reverse_lazy("kitchen:dishtype-list")
 
 
@@ -112,7 +111,7 @@ class IngredientUpdateView(LoginRequiredMixin, UpdateView):
 
 class IngredientDeleteView(LoginRequiredMixin, DeleteView):
     model = Ingredient
-    template_name = "kitchen/confirm_delete.html"
+    template_name = "kitchen/ingredient_confirm_delete.html"
     success_url = reverse_lazy("kitchen:ingredient-list")
 
 
@@ -158,7 +157,7 @@ class DishUpdateView(LoginRequiredMixin, UpdateView):
 
 class DishDeleteView(LoginRequiredMixin, DeleteView):
     model = Dish
-    template_name = "kitchen/confirm_delete.html"
+    template_name = "kitchen/dish_confirm_delete.html"
     success_url = reverse_lazy("kitchen:dish-list")
 
 
@@ -203,5 +202,5 @@ class CookUpdateView(LoginRequiredMixin, UpdateView):
 
 class CookDeleteView(LoginRequiredMixin, DeleteView):
     model = Cook
-    template_name = "kitchen/confirm_delete.html"
+    template_name = "kitchen/cook_confirm_delete.html"
     success_url = reverse_lazy("kitchen:cook-list")
