@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Kitchen Service{% endblock %}
+
+{% block content %}
+  <div class="mb-4">
+    <h1 class="mb-1">Kitchen Dashboard</h1>
+    <p class="text-muted">Overview of the restaurant kitchen system.</p>
+  </div>
+
+  <div class="row g-4 mb-4">
+    <div class="col-md-6 col-xl-3">
+      <div class="card card-stat p-3">
+        <h5 class="text-muted">Dishes</h5>
+        <h2>{{ num_dishes }}</h2>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div class="card card-stat p-3">
+        <h5 class="text-muted">Cooks</h5>
+        <h2>{{ num_cooks }}</h2>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div class="card card-stat p-3">
+        <h5 class="text-muted">Dish Types</h5>
+        <h2>{{ num_dish_types }}</h2>
+      </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div class="card card-stat p-3">
+        <h5 class="text-muted">Ingredients</h5>
+        <h2>{{ num_ingredients }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-stat p-4">
+    <h4 class="mb-3">Welcome back</h4>
+    <p class="mb-0">
+      You have visited this page <strong>{{ num_visits }}</strong> time{{ num_visits|pluralize }}.
+    </p>
+  </div>
+{% endblock %}

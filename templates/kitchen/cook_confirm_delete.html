@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Delete cook | Kitchen Service{% endblock %}
+
+{% block content %}
+  <div class="table-container">
+    <h1 class="mb-3">Delete cook</h1>
+    <p class="mb-4">
+      Are you sure you want to delete <strong>"{{ cook.username }}"</strong>?
+    </p>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-danger">Yes, delete</button>
+        <a href="{% url 'kitchen:cook-detail' cook.pk %}" class="btn btn-outline-secondary">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

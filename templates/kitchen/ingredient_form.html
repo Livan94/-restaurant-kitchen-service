@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {% if form.instance.pk %}
+    Update ingredient | Kitchen Service
+  {% else %}
+    Create ingredient | Kitchen Service
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="mb-4">
+    <h1 class="mb-1">
+      {% if form.instance.pk %}
+        Update ingredient
+      {% else %}
+        Create ingredient
+      {% endif %}
+    </h1>
+    <p class="text-muted mb-0">Add or edit an ingredient.</p>
+  </div>
+
+  <div class="table-container">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+
+      <div class="d-flex gap-2 mt-3">
+        <button type="submit" class="btn btn-primary">
+          {% if form.instance.pk %}Update{% else %}Create{% endif %}
+        </button>
+        <a href="{% url 'kitchen:ingredient-list' %}" class="btn btn-outline-secondary">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

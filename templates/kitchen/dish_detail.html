@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}{{ dish.name }} | Kitchen Service{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <div>
+      <h1 class="mb-1">{{ dish.name }}</h1>
+      <p class="text-muted mb-0">{{ dish.dish_type.name }}</p>
+    </div>
+    <div class="d-flex gap-2">
+      <a href="{% url 'kitchen:dish-update' dish.pk %}" class="btn btn-outline-secondary">
+        Edit
+      </a>
+      <a href="{% url 'kitchen:dish-delete' dish.pk %}" class="btn btn-outline-danger">
+        Delete
+      </a>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <div class="table-container mb-4">
+        <h4 class="mb-3">Description</h4>
+        <p class="mb-0">
+          {% if dish.description %}
+            {{ dish.description }}
+          {% else %}
+            <span class="text-muted">No description provided.</span>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="table-container mb-4">
+        <h4 class="mb-3">Ingredients</h4>
+        {% if dish.ingredients.all %}
+          <div class="d-flex flex-wrap gap-2">
+            {% for ingredient in dish.ingredients.all %}
+              <span class="badge text-bg-secondary">{{ ingredient.name }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="mb-0 text-muted">No ingredients assigned.</p>
+        {% endif %}
+      </div>
+
+      <div class="table-container">
+        <h4 class="mb-3">Assigned cooks</h4>
+        {% if dish.cooks.all %}
+          <ul class="list-group list-group-flush">
+            {% for cook in dish.cooks.all %}
+              <li class="list-group-item px-0">
+                <a href="{% url 'kitchen:cook-detail' cook.pk %}" class="text-decoration-none">
+                  {{ cook.username }}
+                </a>
+                {% if cook.first_name or cook.last_name %}
+                  — {{ cook.first_name }} {{ cook.last_name }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="mb-0 text-muted">No cooks assigned.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="table-container">
+        <h4 class="mb-3">Dish info</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item px-0 d-flex justify-content-between">
+            <span>Name</span>
+            <strong>{{ dish.name }}</strong>
+          </li>
+          <li class="list-group-item px-0 d-flex justify-content-between">
+            <span>Type</span>
+            <span>{{ dish.dish_type.name }}</span>
+          </li>
+          <li class="list-group-item px-0 d-flex justify-content-between">
+            <span>Price</span>
+            <strong>${{ dish.price }}</strong>
+          </li>
+          <li class="list-group-item px-0 d-flex justify-content-between">
+            <span>Cooks</span>
+            <span>{{ dish.cooks.count }}</span>
+          </li>
+          <li class="list-group-item px-0 d-flex justify-content-between">
+            <span>Ingredients</span>
+            <span>{{ dish.ingredients.count }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

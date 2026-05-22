@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {% if form.instance.pk %}
+    Update dish | Kitchen Service
+  {% else %}
+    Create dish | Kitchen Service
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="mb-4">
+    <h1 class="mb-1">
+      {% if form.instance.pk %}
+        Update dish
+      {% else %}
+        Create dish
+      {% endif %}
+    </h1>
+    <p class="text-muted mb-0">Fill in the dish information below.</p>
+  </div>
+
+  <div class="table-container">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+
+      <div class="d-flex gap-2 mt-3">
+        <button type="submit" class="btn btn-primary">
+          {% if form.instance.pk %}Update{% else %}Create{% endif %}
+        </button>
+        <a href="{% url 'kitchen:dish-list' %}" class="btn btn-outline-secondary">
+          Cancel
+        </a>
+      </div>
+    </form>
+  </div>
+{% endblock %}
