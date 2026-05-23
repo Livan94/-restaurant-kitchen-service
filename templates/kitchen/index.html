@@ -6,7 +6,6 @@
 {% block content %}
   <section class="hero-section mb-4">
     <div class="hero-content">
-      <p class="hero-eyebrow">Kitchen operations</p>
       <h1>Kitchen Dashboard</h1>
       <p class="hero-text">
         Efficient management of dishes, ingredients, and kitchen staff.
@@ -15,29 +14,40 @@
   </section>
 
   <div class="row g-4 mb-4 stats-row">
-    <div class="col-md-6 col-xl-3">
-      <div class="card card-stat stat-card p-4 h-100">
-        <p class="stat-label">Dishes</p>
-        <h2>{{ num_dishes }}</h2>
-      </div>
+    <div class="col-md-6 col-xl-3 d-flex">
+      <a href="{% url 'kitchen:dish-list' %}" class="stat-card-link w-100">
+        <div class="card card-stat stat-card p-4 h-100">
+          <p class="stat-label">Dishes</p>
+          <h2>{{ num_dishes }}</h2>
+        </div>
+      </a>
     </div>
-    <div class="col-md-6 col-xl-3">
-      <div class="card card-stat stat-card p-4 h-100">
-        <p class="stat-label">Cooks</p>
-        <h2>{{ num_cooks }}</h2>
-      </div>
+
+    <div class="col-md-6 col-xl-3 d-flex">
+      <a href="{% url 'kitchen:cook-list' %}" class="stat-card-link w-100">
+        <div class="card card-stat stat-card p-4 h-100">
+          <p class="stat-label">Cooks</p>
+          <h2>{{ num_cooks }}</h2>
+        </div>
+      </a>
     </div>
-    <div class="col-md-6 col-xl-3">
-      <div class="card card-stat stat-card p-4 h-100">
-        <p class="stat-label">Dish Types</p>
-        <h2>{{ num_dish_types }}</h2>
-      </div>
+
+    <div class="col-md-6 col-xl-3 d-flex">
+      <a href="{% url 'kitchen:dish-type-list' %}" class="stat-card-link w-100">
+        <div class="card card-stat stat-card p-4 h-100">
+          <p class="stat-label">Dish Types</p>
+          <h2>{{ num_dish_types }}</h2>
+        </div>
+      </a>
     </div>
-    <div class="col-md-6 col-xl-3">
-      <div class="card card-stat stat-card p-4 h-100">
-        <p class="stat-label">Ingredients</p>
-        <h2>{{ num_ingredients }}</h2>
-      </div>
+
+    <div class="col-md-6 col-xl-3 d-flex">
+      <a href="{% url 'kitchen:ingredient-list' %}" class="stat-card-link w-100">
+        <div class="card card-stat stat-card p-4 h-100">
+          <p class="stat-label">Ingredients</p>
+          <h2>{{ num_ingredients }}</h2>
+        </div>
+      </a>
     </div>
   </div>
 
