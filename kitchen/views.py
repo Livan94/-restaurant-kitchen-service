@@ -15,7 +15,10 @@ from .forms import (
     DishForm,
     DishTypeForm,
     IngredientForm,
-    SearchForm,
+    CookSearchForm,
+    DishSearchForm,
+    DishTypeSearchForm,
+    IngredientSearchForm,
 )
 from .models import Cook, Dish, DishType, Ingredient
 
@@ -50,7 +53,7 @@ class DishTypeListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["search_form"] = SearchForm(self.request.GET or None)
+        context["search_form"] = DishTypeSearchForm(self.request.GET or None)
         context["query"] = self.request.GET.get("query", "")
         return context
 
@@ -90,7 +93,7 @@ class IngredientListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["search_form"] = SearchForm(self.request.GET or None)
+        context["search_form"] = IngredientSearchForm(self.request.GET or None)
         context["query"] = self.request.GET.get("query", "")
         return context
 
@@ -130,7 +133,7 @@ class DishListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["search_form"] = SearchForm(self.request.GET or None)
+        context["search_form"] = DishSearchForm(self.request.GET or None)
         context["query"] = self.request.GET.get("query", "")
         return context
 
@@ -176,7 +179,7 @@ class CookListView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["search_form"] = SearchForm(self.request.GET or None)
+        context["search_form"] = CookSearchForm(self.request.GET or None)
         context["query"] = self.request.GET.get("query", "")
         return context
 

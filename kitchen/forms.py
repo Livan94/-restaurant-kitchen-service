@@ -100,14 +100,53 @@ class IngredientForm(forms.ModelForm):
         _apply_bootstrap(self)
 
 
-class SearchForm(forms.Form):
+class CookSearchForm(forms.Form):
     query = forms.CharField(
         required=False,
         label="",
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder": "Search…",
+                "placeholder": "🔎︎ Search by username...",
+            }
+        ),
+    )
+
+
+class DishSearchForm(forms.Form):
+    query = forms.CharField(
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "🔎︎ Search by dish name...",
+            }
+        ),
+    )
+
+
+class DishTypeSearchForm(forms.Form):
+    query = forms.CharField(
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "🔎︎ Search by category name...",
+            }
+        ),
+    )
+
+
+class IngredientSearchForm(forms.Form):
+    query = forms.CharField(
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "🔎︎ Search by ingredient...",
             }
         ),
     )
