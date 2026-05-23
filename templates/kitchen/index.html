@@ -52,7 +52,7 @@
   </div>
 
   <div class="card card-stat welcome-card p-4">
-    <h4 class="mb-3">Welcome back</h4>
+    <h4 class="mb-3">Welcome back, {{ request.user.username }}!</h4>
     <p class="mb-0">
       You have visited this page <strong>{{ num_visits }}</strong> time{{ num_visits|pluralize }}.
     </p>
