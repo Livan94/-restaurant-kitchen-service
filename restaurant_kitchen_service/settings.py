@@ -20,6 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
+# Security and environment
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY", default="secret")
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -44,8 +46,11 @@ INSTALLED_APPS = [
     'kitchen',
 ]
 
+# Middleware
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,6 +60,7 @@ MIDDLEWARE = [
 ]
 
 # Debug Toolbar
+
 if DEBUG:
     INSTALLED_APPS += ["debug_toolbar"]
     MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"] + MIDDLEWARE
@@ -63,7 +69,11 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+# URL configuration
+
 ROOT_URLCONF = 'restaurant_kitchen_service.urls'
+
+# Templates
 
 TEMPLATES = [
     {
@@ -81,6 +91,7 @@ TEMPLATES = [
     },
 ]
 
+# WSGI application
 WSGI_APPLICATION = 'restaurant_kitchen_service.wsgi.application'
 
 # Database
@@ -127,12 +138,25 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Auth
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
+
+# Custom user and authentication
+
 AUTH_USER_MODEL = 'kitchen.Cook'
 LOGIN_REDIRECT_URL = "kitchen:index"
 LOGOUT_REDIRECT_URL = "login"
 LOGIN_URL = "login"
+
+# Third-party packages
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
