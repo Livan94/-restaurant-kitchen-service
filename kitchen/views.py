@@ -190,7 +190,7 @@ class CookDetailView(LoginRequiredMixin, DetailView):
     queryset = Cook.objects.prefetch_related("dishes__dish_type")
 
 
-class CookCreateView(CreateView):
+class CookCreateView(LoginRequiredMixin, CreateView):
     model = Cook
     form_class = CookCreationForm
     template_name = "kitchen/cook_form.html"
