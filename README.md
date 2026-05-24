@@ -69,58 +69,25 @@ python -m venv .venv
 .venv\\Scripts\\activate
 ```
 
-### 3. Create `.env` file
-
-Create your local `.env` file based on `.env.example`.
-
-#### Linux / macOS
-
-```bash
-cp .env.example .env
-```
-
-#### Windows
-
-```bash
-copy .env.example .env
-```
-
-The `.env.example` file contains:
-
-```env
-# True for local development, False for production-like local check
-DEBUG=True
-
-# Django secret key for local development
-SECRET_KEY=your-secret-key-here
-
-# Comma-separated hosts
-ALLOWED_HOSTS=127.0.0.1,localhost
-```
-
-### 4. Install dependencies
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Apply migrations
+### 4. Apply migrations
 
 ```bash
-python manage.py migrate
+python manage.py migrate --settings=restaurant_kitchen_service.settings.prod
 ```
 
-### 6. Create a superuser
-
-This project expects each user to create a local superuser manually before loading fixture data.
+### 5. Create a superuser
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 7. Load demo data
-
-After creating the superuser, load the prepared fixture:
+### 6. Load demo data
 
 ```bash
 python manage.py loaddata kitchen_data.json
@@ -128,9 +95,9 @@ python manage.py loaddata kitchen_data.json
 
 > **Important:**  
 > The fixture file does not provide a ready-to-use admin password.  
-> The admin account should be created locally with `createsuperuser`.
+> Create your own admin account locally with `createsuperuser`.
 
-### 8. Run the development server
+### 7. Run the server
 
 ```bash
 python manage.py runserver
@@ -141,38 +108,6 @@ Open in browser:
 ```text
 http://127.0.0.1:8000/
 ```
-
-## Local setup with `DEBUG=False` (optional)
-
-By default, the project is intended to run locally with:
-
-```env
-DEBUG=True
-```
-
-If you want to fully disable debug mode, open your `.env` file and change:
-
-```env
-DEBUG=False
-```
-
-You should also make sure that `ALLOWED_HOSTS` contains the local addresses you use:
-
-```env
-ALLOWED_HOSTS=127.0.0.1,localhost
-```
-
-Then run the project with the usual commands:
-
-```bash
-python manage.py migrate
-python manage.py runserver
-```
-
-> **Note:**  
-> Running the project with `DEBUG=False` is optional and intended as a production-like local check.  
-> In this mode, additional configuration may be required for static files and deployment-related settings.  
-> For standard local development, it is recommended to keep `DEBUG=True`.  
 
 ## Demo Data
 
