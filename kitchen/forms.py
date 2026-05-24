@@ -24,7 +24,6 @@ def _apply_bootstrap(form):
     return form
 
 
-
 class CookCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Cook

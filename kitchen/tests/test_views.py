@@ -41,7 +41,6 @@ class PublicViewTests(TestCase):
         )
 
 
-
 class PrivateViewTests(TestCase):
     def setUp(self):
         self.user = Cook.objects.create_user(
@@ -133,7 +132,9 @@ class PrivateViewTests(TestCase):
 
     def test_dish_type_list_view_uses_correct_search_form(self):
         response = self.client.get(reverse("kitchen:dish-type-list"))
-        self.assertIsInstance(response.context["search_form"], DishTypeSearchForm)
+        self.assertIsInstance(
+            response.context["search_form"], DishTypeSearchForm
+        )
 
     def test_dish_type_list_view_filters_by_name(self):
         response = self.client.get(
@@ -145,7 +146,9 @@ class PrivateViewTests(TestCase):
 
     def test_ingredient_list_view_uses_correct_search_form(self):
         response = self.client.get(reverse("kitchen:ingredient-list"))
-        self.assertIsInstance(response.context["search_form"], IngredientSearchForm)
+        self.assertIsInstance(
+            response.context["search_form"], IngredientSearchForm
+        )
 
     def test_ingredient_list_view_filters_by_name(self):
         response = self.client.get(

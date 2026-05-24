@@ -44,7 +44,11 @@ class AdminTests(TestCase):
     def test_dish_admin_configuration(self):
         model_admin = admin.site._registry[Dish]
         self.assertIsInstance(model_admin, DishAdmin)
-        self.assertEqual(model_admin.list_display, ("name", "price", "dish_type"))
+        self.assertEqual(model_admin.list_display,
+                         ("name", "price", "dish_type")
+                         )
         self.assertEqual(model_admin.list_filter, ("dish_type",))
         self.assertEqual(model_admin.search_fields, ("name",))
-        self.assertEqual(model_admin.filter_horizontal, ("cooks", "ingredients"))
+        self.assertEqual(model_admin.filter_horizontal,
+                         ("cooks", "ingredients")
+                         )
