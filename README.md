@@ -78,16 +78,22 @@ pip install -r requirements.txt
 ### 4. Apply migrations
 
 ```bash
-python manage.py migrate --settings=restaurant_kitchen_service.settings.prod
+python manage.py migrate
 ```
 
-### 5. Create a superuser
+### 5. Collect static files
+
+```bash
+python manage.py collectstatic
+```
+
+### 6. Create a superuser
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 6. Load demo data
+### 7. Load demo data
 
 ```bash
 python manage.py loaddata kitchen_data.json
@@ -97,7 +103,7 @@ python manage.py loaddata kitchen_data.json
 > The fixture file does not provide a ready-to-use admin password.  
 > Create your own admin account locally with `createsuperuser`.
 
-### 7. Run the server
+### 8. Run the server
 
 ```bash
 python manage.py runserver
