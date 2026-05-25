@@ -9,7 +9,7 @@ from django.views.generic import (
     UpdateView,
 )
 
-from .forms import (
+from kitchen.forms import (
     CookCreationForm,
     CookUpdateForm,
     DishForm,
@@ -20,7 +20,7 @@ from .forms import (
     DishTypeSearchForm,
     IngredientSearchForm,
 )
-from .models import Cook, Dish, DishType, Ingredient
+from kitchen.models import Cook, Dish, DishType, Ingredient
 
 
 class IndexView(LoginRequiredMixin, TemplateView):

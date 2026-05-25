@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Cook, Dish, DishType, Ingredient
+from kitchen.models import Cook, Dish, DishType, Ingredient
 
 
 def _apply_bootstrap(form):
