@@ -24,9 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY", default="django-insecure-6s(%39+yoj@%f5vmgrg0xpge=v%2mk)e-=)i5^7rl+9@eqhwpc")
-ALLOWED_HOSTS = config(
-    "ALLOWED_HOSTS", default="127.0.0.1,localhost", cast=Csv()
-)
 
 # Application definition
 INSTALLED_APPS = [
@@ -76,15 +73,6 @@ TEMPLATES = [
 
 # WSGI application
 WSGI_APPLICATION = "restaurant_kitchen_service.wsgi.application"
-
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
