@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Security and environment
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY", default="secret")
+SECRET_KEY = config("SECRET_KEY", default="django-insecure-6s(%39+yoj@%f5vmgrg0xpge=v%2mk)e-=)i5^7rl+9@eqhwpc")
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS", default="127.0.0.1,localhost", cast=Csv()
 )
