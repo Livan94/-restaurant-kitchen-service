@@ -15,6 +15,7 @@ pycodestyle==2.14.0
 pyflakes==3.4.0
 python-decouple==3.8
 pytokens==0.4.1
+psycopg2-binary
 ruff==0.15.14
 sqlparse==0.5.5
 whitenoise==6.12.0
