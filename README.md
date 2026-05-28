@@ -4,7 +4,7 @@ A Django-based web application for managing dishes, ingredients, dish types, and
 
 ## Live Demo
 
-Live Demo: [Restaurant Kitchen Service](https://restaurant-kitchen-service-279w.onrender.com) [web:1277]
+Live Demo: [Restaurant Kitchen Service](https://restaurant-kitchen-service-279w.onrender.com)
 
 Use these credentials to log in and explore the demo:
 - Username: `user`
