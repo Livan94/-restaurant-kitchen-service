@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 
-from decouple import config, Csv
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -23,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Security and environment
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY", default="django-insecure-6s(%39+yoj@%f5vmgrg0xpge=v%2mk)e-=)i5^7rl+9@eqhwpc")
+SECRET_KEY = config(
+    "SECRET_KEY",
+    default="django-insecure-6s(%39+yoj@%f5vmgrg0xpge=v%2mk)e-=)i5^7rl+9@eqhwpc"  # noqa: E501
+)
 
 # Application definition
 INSTALLED_APPS = [
