@@ -1,4 +1,4 @@
-import os
+from decouple import config, Csv
 
 from restaurant_kitchen_service.settings.base import *  # noqa: F403,F401
 
@@ -12,12 +12,12 @@ ALLOWED_HOSTS = config(
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': os.environ['POSTGRES_DB'],
-    'USER': os.environ['POSTGRES_USER'],
-    'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-    'HOST': os.environ['POSTGRES_HOST'],
-    'PORT': int(os.environ['POSTGRES_DB_PORT']),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("POSTGRES_DB"),
+        "USER": config("POSTGRES_USER"),
+        "PASSWORD": config("POSTGRES_PASSWORD"),
+        "HOST": config("POSTGRES_HOST"),
+        "PORT": config("POSTGRES_DB_PORT", cast=int),
     }
 }
