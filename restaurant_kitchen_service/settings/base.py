@@ -76,6 +76,7 @@ TEMPLATES = [
 
 # WSGI application
 WSGI_APPLICATION = "restaurant_kitchen_service.wsgi.application"
+ASGI_APPLICATION = "restaurant_kitchen_service.asgi.application"
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
