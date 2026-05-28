@@ -2,6 +2,14 @@
 
 A Django-based web application for managing dishes, ingredients, dish types, and cooks in a restaurant kitchen.
 
+## Live Demo
+
+Live Demo: [Restaurant Kitchen Service](https://restaurant-kitchen-service-279w.onrender.com) [web:1277]
+
+Use these credentials to log in and explore the demo:
+- Username: `user`
+- Password: `user12345`
+
 ## Database Structure
 
 The database includes four main entities:
