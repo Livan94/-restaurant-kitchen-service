@@ -41,6 +41,8 @@ SESSION_COOKIE_SECURE = config(
 )
 CSRF_COOKIE_SECURE = config("CSRF_COOKIE_SECURE", default=True, cast=bool)
 
+CSRF_TRUSTED_ORIGINS = ["https://restaurant-kitchen-service-279w.onrender.com"]
+
 SECURE_HSTS_SECONDS = config("SECURE_HSTS_SECONDS", default=31536000, cast=int)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = config(
     "SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True, cast=bool
